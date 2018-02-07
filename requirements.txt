@@ -1,0 +1,7 @@
+lxml==4.1.1
+numpy==1.14.0
+pandas==0.22.0
+python-dateutil==2.6.1
+python-docx==0.8.6
+pytz==2017.3
+six==1.11.0
