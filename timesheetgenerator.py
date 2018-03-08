@@ -5,6 +5,7 @@ import json
 import calendar
 import pandas as pd
 import numpy as np
+import os
 from docx import Document
 from pandas.tseries.offsets import CustomBusinessDay
 
@@ -69,6 +70,11 @@ bus_days = CustomBusinessDay(holidays=config['holidays'])
 bus_dates = pd.date_range(start=config['start_date'],end=config['end_date'],freq=bus_days)
 #Calender days by week
 array_of_weeks = [bus_dates[bus_dates.week == w] for w in range(min(bus_dates.week),max(bus_dates.week) + 1)]
+
+landing_dir = config['landing_dir']
+if not os.path.isdir(landing_dir):
+    os.mkdir(landing_dir)
+
 
 #Loop through array of weeks to create a time-sheet file for each week
 for week in array_of_weeks:
